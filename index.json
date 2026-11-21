@@ -1,0 +1,91 @@
+{
+  "format": 1,
+  "title": {
+    "en": "xiaoniangaoh's DSH Plugins",
+    "zh": "xiaoniangaoh 的 DSH 插件"
+  },
+  "description": {
+    "en": "A curated index of DSH bundles maintained by xiaoniangaoh.",
+    "zh": "由 xiaoniangaoh 维护的 DSH 组合包索引。"
+  },
+  "metadata": {
+    "categories": {
+      "utility": {
+        "title": {
+          "en": "Utility",
+          "zh": "实用工具"
+        }
+      },
+      "statistics": {
+        "title": {
+          "en": "Statistics",
+          "zh": "统计"
+        }
+      }
+    },
+    "labels": {
+      "community": {
+        "title": {
+          "en": "Community",
+          "zh": "社区"
+        }
+      },
+      "official": {
+        "title": {
+          "en": "Official",
+          "zh": "官方"
+        }
+      }
+    },
+    "sortKeys": {
+      "published": {
+        "title": {
+          "en": "Published",
+          "zh": "发布时间"
+        },
+        "order": "desc"
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-token-gist",
+      "title": {
+        "en": "Token usage with gist backup",
+        "zh": "Token 用量与 gist 云备份"
+      },
+      "description": {
+        "en": "Tracks a cumulative DSH token total that survives conversation deletion, and syncs it to a GitHub gist. Sidebar card, slash command /token-usage, and per-day breakdown.",
+        "zh": "累计统计 DSH 的 token 总用量（删除对话也不丢失），并同步备份到 GitHub gist。提供侧边栏卡片、/token-usage 命令和按天明细。"
+      },
+      "icon": "https://raw.githubusercontent.com/xiaoniangaoh/dsh-token-gist/main/icon.svg",
+      "author": "xiaoniangaoh",
+      "homepage": "https://github.com/xiaoniangaoh/dsh-token-gist",
+      "repository": {
+        "url": "https://github.com/xiaoniangaoh/dsh-token-gist"
+      },
+      "metadata": {
+        "category": "utility",
+        "keywords": ["dsh", "deepseek-harness", "plugin", "token", "usage", "gist", "backup", "statistics"],
+        "labels": ["community"],
+        "sortKeys": {
+          "published": 1795272311
+        }
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1795272311,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/xiaoniangaoh/dsh-token-gist",
+            "commit": "7339dbca80e77caaf62e98a196af2592f5ebab7c"
+          },
+          "engines": {
+            "dsh": ">=0.2.0"
+          }
+        }
+      ]
+    }
+  ]
+}

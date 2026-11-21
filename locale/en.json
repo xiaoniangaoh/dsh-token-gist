@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Token usage with gist backup",
+    "description": "Tracks a cumulative DSH token total that survives conversation deletion, and syncs it to a GitHub gist. Sidebar card, slash command /token-usage, and per-day breakdown."
+  }
+}

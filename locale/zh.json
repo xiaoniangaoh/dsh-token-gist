@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Token 用量与 gist 云备份",
+    "description": "累计统计 DSH 的 token 总用量（删除对话也不丢失），并同步备份到 GitHub gist。提供侧边栏卡片、/token-usage 命令和按天明细。"
+  }
+}

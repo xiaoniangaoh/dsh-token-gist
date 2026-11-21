@@ -1,0 +1,6 @@
+# dsh-token-gist — bundle layer.
+# One plugin row. `name` is the exact package specifier as installed in the
+# profile's node_modules.
+- insert:
+    - id: dsh-token-gist
+      name: "dsh-token-gist"

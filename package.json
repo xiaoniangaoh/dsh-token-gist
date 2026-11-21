@@ -1,0 +1,61 @@
+{
+  "name": "dsh-token-gist",
+  "version": "1.0.0",
+  "description": "Cumulative token usage tracker with GitHub gist backup. Totals live in their own file, so deleting a conversation never loses them.",
+  "icon": "./icon.svg",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.5"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "token",
+    "usage",
+    "gist",
+    "backup",
+    "statistics"
+  ],
+  "author": "xiaoniangaoh",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaoniangaoh/dsh-token-gist.git"
+  },
+  "homepage": "https://github.com/xiaoniangaoh/dsh-token-gist#readme",
+  "bugs": {
+    "url": "https://github.com/xiaoniangaoh/dsh-token-gist/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

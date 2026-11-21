@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="300" viewBox="0 0 640 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="640" height="300" fill="url(#bg)"/>
+  <rect x="20" y="20" width="600" height="260" rx="16" fill="url(#card)" stroke="#334155" stroke-width="1"/>
+
+  <!-- 左侧：图标 -->
+  <g transform="translate(60, 60)">
+    <rect width="120" height="120" rx="24" fill="#1c6fb5"/>
+    <circle cx="60" cy="60" r="40" fill="none" stroke="#ffffff" stroke-width="8"/>
+    <path d="M60 26v12M60 90v12M26 60h12M94 60h12" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+    <polyline points="44 68 58 54 68 60 84 44" fill="none" stroke="#8fd3ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M72 44h12v12" fill="none" stroke="#8fd3ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 右侧：标题和说明 -->
+  <g transform="translate(210, 55)">
+    <text x="0" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="#ffffff">dsh-token-gist</text>
+    <text x="0" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#94a3b8">累计 Token 用量 · GitHub gist 云备份</text>
+    <rect x="0" y="95" width="4" height="24" fill="#1c6fb5"/>
+    <text x="8" y="110" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#e2e8f0">DSH 插件 · 侧边栏卡片 · /token-usage 命令</text>
+  </g>
+
+  <!-- 底部：功能卡片 -->
+  <g transform="translate(210, 145)">
+    <rect width="400" height="100" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="24" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#ffffff">功能预览</text>
+    <g transform="translate(24, 52)">
+      <circle cx="8" cy="8" r="6" fill="#22d3ee"/>
+      <text x="22" y="14" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#cbd5e1">删除对话后总计仍保留</text>
+    </g>
+    <g transform="translate(200, 52)">
+      <circle cx="8" cy="8" r="6" fill="#22d3ee"/>
+      <text x="22" y="14" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#cbd5e1">自动同步到 GitHub gist</text>
+    </g>
+    <g transform="translate(24, 80)">
+      <circle cx="8" cy="8" r="6" fill="#22d3ee"/>
+      <text x="22" y="14" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#cbd5e1">侧边栏卡片与 /token-usage 命令</text>
+    </g>
+  </g>
+
+  <!-- 底部标签 -->
+  <text x="320" y="282" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">DSH 插件市场 · xiaoniangaoh/dsh-token-gist</text>
+</svg>

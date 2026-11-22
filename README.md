@@ -1,4 +1,4 @@
-# dsh-token-gist
+# Token Usage Statistics · token用量统计
 
 A DeepSeek Harness (DSH) plugin that keeps a **cumulative token usage total** and syncs it to a **GitHub gist**. The total lives in its own file and is folded from newly committed session events, so it is **not** derived from session logs — deleting, archiving, or compacting a conversation never reduces the total.
 

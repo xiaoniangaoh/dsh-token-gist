@@ -51,8 +51,8 @@
     {
       "name": "dsh-token-gist",
       "title": {
-        "en": "Token usage with gist backup",
-        "zh": "Token 用量与 gist 云备份"
+        "en": "Token Usage Statistics",
+        "zh": "token用量统计"
       },
       "description": {
         "en": "Tracks a cumulative DSH token total that survives conversation deletion, and syncs it to a GitHub gist. Sidebar card, slash command /token-usage, and per-day breakdown.",
@@ -75,14 +75,14 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishTimestamp": 1795272311,
+          "publishTimestamp": 1765272311,
           "source": {
             "type": "git",
             "url": "https://github.com/xiaoniangaoh/dsh-token-gist",
             "commit": "7339dbca80e77caaf62e98a196af2592f5ebab7c"
           },
           "engines": {
-            "dsh": ">=0.2.0"
+            "dsh": ">=0.2.0-0"
           }
         }
       ]

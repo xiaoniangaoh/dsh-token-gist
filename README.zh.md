@@ -1,4 +1,4 @@
-# dsh-token-gist
+# token用量统计
 
 一个 DeepSeek Harness (DSH) 插件，用于维护**累计 Token 用量总计**，并将其备份到 **GitHub gist**。总计保存在独立文件中，从新提交的会话事件中累加，因此**不是**从会话日志派生的——删除、归档或压缩对话都不会减少总计。
 

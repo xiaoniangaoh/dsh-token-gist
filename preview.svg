@@ -29,7 +29,7 @@
 
   <!-- 右侧：标题和说明 -->
   <g transform="translate(210, 55)">
-    <text x="0" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="#ffffff">dsh-token-gist</text>
+    <text x="0" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="#ffffff">token用量统计</text>
     <text x="0" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#94a3b8">累计 Token 用量 · GitHub gist 云备份</text>
     <rect x="0" y="95" width="4" height="24" fill="#1c6fb5"/>
     <text x="8" y="110" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#e2e8f0">DSH 插件 · 侧边栏卡片 · /token-usage 命令</text>

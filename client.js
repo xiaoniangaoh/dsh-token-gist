@@ -138,7 +138,70 @@ window.__ModuleLoader__.load({
       ],
     }
 
+    /** 完整数字，带千分位（保留给悬停 / 详情用）。 */
     const fmt = (n) => (typeof n === 'number' ? n.toLocaleString('en-US') : '0')
+
+    /**
+     * 简化计量：支持全部短尺度单位（千 K / 百万 M / 十亿 B / 万亿 T / … 直到 Googol 10^100）。
+     * 100万 → 1M，10亿 → 1B，1万亿 → 1T，小于1000显示原值。
+     * 非整数单位保留一位小数（如 1,234,567 → 1.2M）。
+     */
+    const UNITS = [
+      [1e100, 'Googol'],
+      [1e99, 'Dtg'],
+      [1e96, 'Utg'],
+      [1e93, 'Tg'],
+      [1e90, 'Ndv'],
+      [1e87, 'Odv'],
+      [1e84, 'Spdv'],
+      [1e81, 'Sxdv'],
+      [1e78, 'Qnv'],
+      [1e75, 'Qdv'],
+      [1e72, 'Tdv'],
+      [1e69, 'Ddv'],
+      [1e66, 'Udv'],
+      [1e63, 'Vg'],
+      [1e60, 'Nd'],
+      [1e57, 'Od'],
+      [1e54, 'Spd'],
+      [1e51, 'Sxd'],
+      [1e48, 'Qn'],
+      [1e45, 'Qd'],
+      [1e42, 'Td'],
+      [1e39, 'Dd'],
+      [1e36, 'Ud'],
+      [1e33, 'De'],
+      [1e30, 'No'],
+      [1e27, 'Oc'],
+      [1e24, 'Sp'],
+      [1e21, 'Sx'],
+      [1e18, 'Qi'],
+      [1e15, 'Qa'],
+      [1e12, 'T'],
+      [1e9, 'B'],
+      [1e6, 'M'],
+      [1e3, 'K'],
+    ]
+
+    const fmtCompact = (n) => {
+      if (typeof n !== 'number' || !Number.isFinite(n)) return '0'
+      const abs = Math.abs(n)
+      const sign = n < 0 ? '-' : ''
+      for (const [threshold, unit] of UNITS) {
+        if (abs >= threshold) {
+          const v = abs / threshold
+          return `${sign}${Number.isInteger(v) ? v : v.toFixed(1)}${unit}`
+        }
+      }
+      return `${sign}${Math.trunc(abs)}`
+    }
+
+    /** 带悬停提示的简化显示：表面简化，title 给出真实完整数值。 */
+    const fmtTooltip = (n) => {
+      const full = fmt(n)
+      const compact = fmtCompact(n)
+      return { compact, full, title: full === compact ? undefined : `真实用量：${full} tokens` }
+    }
     const msg = (error) => (error && error.message ? error.message : String(error || ''))
 
     const styles = {
@@ -217,12 +280,17 @@ window.__ModuleLoader__.load({
           : t('card.syncFailed')
       return h('div', { style: styles.card },
         h('div', { style: styles.row },
-          h('span', { style: styles.total }, `${t('card.title')} · ${fmt(summary.totalTokens)}`),
+          h('span', { style: styles.total, title: fmtTooltip(summary.totalTokens).title },
+            `${t('card.title')} · ${fmtTooltip(summary.totalTokens).compact}`),
           h('button', { style: styles.button, disabled: syncing, onClick: () => void sync() },
             syncing ? t('card.syncing') : t('card.sync')),
         ),
         h('div', { style: styles.meta },
-          t('card.inOut', { input: fmt(summary.totals && summary.totals.inputTokens), output: fmt(summary.totals && summary.totals.outputTokens) })),
+          h('span', { style: { marginRight: '6px' }, title: fmtTooltip(summary.totals && summary.totals.inputTokens).title },
+            `输入 ${fmtTooltip(summary.totals && summary.totals.inputTokens).compact}`),
+          h('span', { style: { marginLeft: '6px', marginRight: '6px' } }, '·'),
+          h('span', { style: { marginLeft: '6px' }, title: fmtTooltip(summary.totals && summary.totals.outputTokens).title },
+            `输出 ${fmtTooltip(summary.totals && summary.totals.outputTokens).compact}`)),
         h('div', { style: styles.meta }, syncText),
         error ? h('div', { style: { ...styles.meta, color: 'var(--dsw-alias-danger, #d66)' } }, msg(error)) : null,
       )
